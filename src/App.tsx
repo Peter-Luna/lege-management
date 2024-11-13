@@ -1,12 +1,16 @@
-import { useState } from 'react'
+import { useRoutes, Link } from 'react-router-dom';
+import router from './router/index'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const outlet = useRoutes(router) // 使用路由
   return (
     <>
       <div className='App'>
-        顶级组件
+        <Link to='/home'>Home</Link>
+        <Link to='/about'>About</Link>
+        <Link to='/user'>User</Link>
+        {/* 占位符组件，类似于窗口，用来显示组件的，有点像vue中的router-view */}
+        {outlet}
       </div>
     </>
   )

@@ -6,12 +6,17 @@ import 'reset-css'
 //UI 框架的样式
 
 // 全局样式
-import './assets/styles/global.scss'
+import '@/assets/styles/global.scss'
+
 //组件的样式
 import App from './App.tsx'
+import { BrowserRouter } from 'react-router-dom'
+// import Router from './router/index.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </StrictMode>,
 )
