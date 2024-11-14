@@ -1,8 +1,18 @@
+import React, { lazy } from "react"
 import Home from "../views/Home"
-import About from "../views/About"
-import User from "../views/User"
+// import About from "../views/About"
+// import User from "../views/User"
+const About = lazy(() => import("../views/About"))
+const User = lazy(() => import("../views/User"))
 
 import { Navigate } from "react-router-dom"
+
+//懒加载模式
+const withLoadingComponent = (comp: JSX.Element) => (
+    <React.Suspense fallback={<div>loading</div>}>
+        {comp}
+    </React.Suspense>
+)
 
 const routes = [
     {
@@ -15,11 +25,13 @@ const routes = [
     },
     {
         path: "/about",
-        element: <About />
+        element: withLoadingComponent(<About />)
     },
     {
         path: "/user",
-        element: <User />
+        element: withLoadingComponent(<User />)
+
+
     }
 
 ]
