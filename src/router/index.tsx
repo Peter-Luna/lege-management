@@ -2,6 +2,7 @@ import React, { lazy } from "react"
 import Home from "../views/Home"
 // import About from "../views/About"
 // import User from "../views/User"
+import Login from "../views/Login/index"
 // const About = lazy(() => import("../views/About"))
 const User = lazy(() => import("../views/User"))
 const Page1 = lazy(() => import("../views/Page1"))
@@ -9,7 +10,6 @@ const Page2 = lazy(() => import("../views/Page2"))
 const Page301 = lazy(() => import("../views/Page301"))
 
 import { Navigate } from "react-router-dom"
-import path from "path"
 
 //懒加载模式
 const withLoadingComponent = (comp: JSX.Element) => (
@@ -57,6 +57,10 @@ const routes = [
             // }
 
         ]
+    },
+    {
+        path: "/login",
+        element: <Login />
     },
     {
         path: "*",

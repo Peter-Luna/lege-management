@@ -12,11 +12,14 @@ import '@/assets/styles/global.scss'
 import App from './App.tsx'
 import { BrowserRouter } from 'react-router-dom'
 // import Router from './router/index.tsx'
+// 状态管理
+import { Provider } from 'react-redux'
+import store from './store'
 
 createRoot(document.getElementById('root')!).render(
-  // <StrictMode>
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
-  // </StrictMode>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>
 )
